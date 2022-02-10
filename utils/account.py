@@ -1,5 +1,6 @@
 import csv
 import logging
+import sys
 
 logging.basicConfig(level=logging.NOTSET, format='%(message)s')
 
@@ -85,4 +86,4 @@ class Account:
 
     def logOut(self):
         logging.info("\nLogging out...")
-        exit()
+        sys.exit(1)
