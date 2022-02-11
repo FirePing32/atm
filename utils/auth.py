@@ -2,6 +2,7 @@ import logging
 from .user import User
 import csv
 from .account import Account
+import sys
 
 logging.basicConfig(level=logging.NOTSET, format='%(message)s')
 
@@ -97,7 +98,7 @@ class Card:
         """Exit the ATM"""
 
         logging.info('\n----Thanks for using Swiss Bank----\n')
-        exit()
+        sys.exit(0)
 
 
 class Atm:

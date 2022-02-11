@@ -86,4 +86,4 @@ class Account:
 
     def logOut(self):
         logging.info("\nLogging out...")
-        sys.exit(1)
+        sys.exit(0)
