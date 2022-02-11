@@ -24,7 +24,7 @@ class Account:
                     balances.append(int(row[2]))
 
             if amount <= 0:
-                logging.warn("\nAmount should be positive !")
+                logging.warning("\nAmount should be positive !")
                 self.depositMoney()
 
             else:
@@ -56,11 +56,11 @@ class Account:
                     balances.append(int(row[2]))
 
             if amount <= 0:
-                logging.warn("\nAmount should be positive !")
+                logging.warning("\nAmount should be positive !")
                 self.withdrawMoney()
 
             elif amount > balances[userIds.index(self.username)]:
-                logging.warn("\nInsufficient balance !")
+                logging.warning("\nInsufficient balance !")
                 self.withdrawMoney()
             else:
                 with open("data.csv", "w") as writefile:
