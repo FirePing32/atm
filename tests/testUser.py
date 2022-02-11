@@ -13,7 +13,7 @@ class TestUser(unittest.TestCase):
         data = ["aaabbb",111111,0]
         User.createUser(data)
         path = pl.Path("data.csv")
-        self.assertEquals((str(path), path.is_file()), (str(path), True))
+        self.assertEqual((str(path), path.is_file()), (str(path), True))
 
     def test_user_exists(self):
 
