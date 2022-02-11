@@ -37,8 +37,7 @@ class Account:
                     writer.writerows(csvdata)
                     logging.info(
                         f"\n----------\nAmount deposited: {amount}\nCurrent balance: {currentBal}\n----------")
-                    return(amount)
-                    
+
         except ValueError as e:
             logging.error(e)
             self.depositMoney()
@@ -73,7 +72,6 @@ class Account:
                     writer.writerows(csvdata)
                     logging.info(
                         f"\n----------\nAmount withdrawn: {amount}\nCurrent balance: {currentBal}\n----------")
-                    return(amount)
 
         except ValueError as e:
             logging.error(e)
