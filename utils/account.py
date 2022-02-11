@@ -14,7 +14,7 @@ class Account:
         """Deposit money to account"""
 
         try:
-            amount = int(input("\nEnter amount to withdraw: "))
+            amount = int(input("\nEnter amount to deposit: "))
             userIds, pins, balances = list(), list(), list()
             with open("data.csv", 'r') as csvfile:
                 reader = csv.reader(csvfile)
@@ -37,6 +37,8 @@ class Account:
                     writer.writerows(csvdata)
                     logging.info(
                         f"\n----------\nAmount deposited: {amount}\nCurrent balance: {currentBal}\n----------")
+                    return(amount)
+                    
         except ValueError as e:
             logging.error(e)
             self.depositMoney()
@@ -71,6 +73,8 @@ class Account:
                     writer.writerows(csvdata)
                     logging.info(
                         f"\n----------\nAmount withdrawn: {amount}\nCurrent balance: {currentBal}\n----------")
+                    return(amount)
+
         except ValueError as e:
             logging.error(e)
             self.withdrawMoney()
@@ -83,6 +87,7 @@ class Account:
             for row in reader:
                 if row[0] == self.username:
                     logging.info(f"\n----------\nCurrent balance: {row[2]}\n----------")
+                    return(row[2])
 
     def logOut(self):
         logging.info("\nLogging out...")
