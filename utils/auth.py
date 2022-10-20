@@ -24,6 +24,8 @@ class Card:
                 self.setupUser()
             elif optionno == 3:
                 self.exitAtm()
+            elif optionno == 4:
+                self.resetPass()
             else:
                 logging.warning("\nInvalid option number !")
                 self.auth()
@@ -31,12 +33,22 @@ class Card:
         except ValueError as e:
             logging.error(e)
             self.auth()
-
+    
+    def resetPass(self):
+        """Reset password"""
+        username = str(input("\nUsername: "))
+        new_password = str(input("\nPassword: "))
+        with open("data.csv", 'r+') as csvfile:
+            reader = csv.reader(csvfile)
+                for row in reader:
+                    if row[0] == username:
+                        row[1] = new_password
+        
     def login(self):
         """Log in the user"""
 
         username = str(input("\nUsername: "))
-
+        
         try:
             pin = int(input("PIN: "))
             userIds, keys = [], []
